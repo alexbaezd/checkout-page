@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="devchallenges.png" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://devchallenges.io/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap"
+    /></noscript>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="plugins/vanillaSelectBox.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+
+    <title>Classic Cheesecake Recipe</title>
+  </head>
+  <body>
+    <main>
+      <h1>Checkout</h1>
+      <form id="form-checkout">
+        <section>
+          <h2 class="subtitle">Contact Information</h2>
+          <!-- Inputs -->
+
+          <div class="form-control">
+            <label for="email">E-mail</label>
+            <div class="inputWithIcon">
+              <input
+                class="input"
+                id="email"
+                type="email"
+                required
+                name="email"
+                placeholder="Enter your email..."
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Your email address"
+              />
+              <span class="material-icons" aria-hidden="true"> email </span>
+            </div>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="phone">Phone</label>
+            <div class="inputWithIcon">
+              <input
+                id="phone"
+                class="input"
+                type="tel"
+                required
+                name="phone"
+                maxlength="10"
+                placeholder="Enter your phone..."
+              />
+              <span class="material-icons" aria-hidden="true"> phone </span>
+            </div>
+            <small>Error message</small>
+          </div>
+          <h2>Shipping address</h2>
+          <div class="form-control">
+            <label for="fullName">Full Name</label>
+            <div class="inputWithIcon">
+              <input
+                id="fullName"
+                class="input"
+                type="text"
+                name="fullName"
+                required
+                maxlength="40"
+                placeholder="Rodney Cotton"
+                title="Example: Rodney Cotton"
+              />
+              <span class="material-icons" aria-hidden="true">
+                account_circle
+              </span>
+            </div>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="address">Address</label>
+            <div class="inputWithIcon">
+              <input
+                id="address"
+                class="input"
+                type="text"
+                required
+                maxlength="50"
+                name="address"
+                placeholder="Your address..."
+              />
+              <span class="material-icons" aria-hidden="true"> home </span>
+            </div>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="city">City</label>
+            <div class="inputWithIcon">
+              <input
+                id="city"
+                class="input"
+                type="text"
+                required
+                maxlength="20"
+                name="city"
+                placeholder="Your city"
+                pattern="[a-zA-Z'-'\s]*"
+                title="Example: Los Angeles"
+              />
+              <span class="material-icons" aria-hidden="true">
+                location_city
+              </span>
+            </div>
+            <small>Error message</small>
+          </div>
+
+          <div class="country">
+            <div>
+              <div class="form-control">
+                <label for="country">Country</label>
+                <div class="inputWithIcon">
+                  <select
+                    id="selectCountry"
+                    name="selectCountry"
+                    multiple
+                    size="2"
+                  >
+                    <option value="United States">United States</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Switzerland">Switzerland</option>
+                  </select>
+                  <span class="material-icons" aria-hidden="true">
+                    public
+                  </span>
+                </div>
+                <small>Error message</small>
+              </div>
+            </div>
+            <div>
+              <div class="form-control">
+                <label for="postalCode">Postal code</label>
+                <div class="inputWithIcon">
+                  <input
+                    id="postalCode"
+                    class="input"
+                    type="number"
+                    required
+                    maxlength="5"
+                    name="postalCode"
+                    placeholder="Your postal code..."
+                    title="5-digit number postal code"
+                    pattern="[0-9]{5}"
+                  />
+                  <span class="material-icons" aria-hidden="true">
+                    markunread_mailbox
+                  </span>
+                </div>
+                <small>Error message</small>
+              </div>
+            </div>
+          </div>
+
+          <label class="label__save_information">
+            <input
+              type="checkbox"
+              name="saveInformation"
+              id="saveInformation"
+              required
+            />
+            Save this information for next time
+          </label>
+
+          <input
+            id="submit-btn"
+            class="btn__submit"
+            value="Continue"
+            type="submit"
+          />
+        </section>
+        <div class="car">
+          <div class="product">
+            <img src="assets/photo1.webp" alt="Backpack" />
+            <div class="info">
+              <p>Vintage Backpack</p>
+              <small id="offerVintageBackpack" class="offer">$54.99</small>
+              <small class="price">$94.99</small>
+            </div>
+            <div class="buttons">
+              <span id="decrementVintageBackpack" class="btn__amount">-</span>
+              <span id="amountVintageBackpack">1</span>
+              <span id="incrementVintageBackpack" class="btn__amount">+</span>
+            </div>
+          </div>
+          <div class="product">
+            <img src="assets/photo2.webp" alt="Backpack" />
+            <div class="info">
+              <p>Levi Shoes</p>
+              <small id="offerLeviShoes" class="offer">$74.99</small>
+              <small class="price">$124.99</small>
+            </div>
+            <div class="buttons">
+              <span id="decrementLeviShoes" class="btn__amount">-</span>
+              <span id="amountLeviShoes">1</span>
+              <span id="incrementLeviShoes" class="btn__amount">+</span>
+            </div>
+          </div>
+          <div class="total">
+            <p>Shipping</p>
+            <p id="shipping">$19</p>
+            <p>Total</p>
+            <p id="totalAmount">$148.98</p>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer>
+      created by
+      <a
+        href="https://devchallenges.io/portfolio/alexbaezd"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Alex Báez</a
+      >
+      - devChallenges.io
+    </footer>
+    <script src="plugins/vanillaSelectBox.js"></script>
+    <script src="js/form.js"></script>
+  </body>
+</html>

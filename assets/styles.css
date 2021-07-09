@@ -1,0 +1,259 @@
+:root {
+  --font-family: "Montserrat", sans-serif;
+  --text-color: #4e5150;
+  --heading-color: #333333;
+  --orange: #f2994a;
+  --car-color: #f2f2f2;
+  --input-color: #828282;
+  --label-color: #4f4f4f;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr 40px;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 20px;
+  height: 100vh;
+  margin: 0 0.875rem;
+}
+h1,
+h2 {
+  font-weight: 600;
+}
+h1 {
+  font-size: clamp(100%, 1rem + 2vw, 3rem);
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: clamp(100%, 0.8rem + 2vw, 1.5rem);
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--heading-color);
+}
+main {
+  margin-top: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column-reverse;
+}
+select {
+  color: var(--input-color);
+  -webkit-appearance: none;
+}
+.input {
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+  margin: 8px 0;
+  outline: none;
+  padding: 10px 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 8px 0 var(--orange);
+}
+
+.input:valid {
+  border: 2px solid lightgreen;
+}
+
+label {
+  font-size: 0.875rem;
+  margin-bottom: 0.365rem;
+  color: var(--label-color);
+}
+
+footer,
+:is(a) {
+  text-align: center;
+  color: #828282;
+  margin-top: 1.5rem;
+}
+.inputWithIcon .input {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon span.material-icons {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 9px 8px;
+  color: var(--input-color);
+  transition: 0.3s;
+}
+
+.inputWithIcon .input:focus + span.material-icons {
+  color: var(--orange);
+}
+
+.country {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.label__save_information {
+  float: left;
+  width: 100%;
+}
+
+.car {
+  background-color: var(--car-color);
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.product img {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  width: 155px;
+  border-radius: 10px;
+}
+
+.product .info {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-weight: 600;
+}
+.product .info p {
+  margin-bottom: 0.5rem;
+}
+.product .buttons {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.offer {
+  color: var(--orange);
+}
+.price {
+  font-size: 0.675rem;
+  text-decoration: line-through;
+}
+.buttons {
+  border: 1px solid #828282;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+  place-items: center;
+  padding: 15px 8px;
+}
+
+.buttons .btn__amount {
+  border: none;
+  border-radius: 4px;
+  padding: 3px;
+  width: 100%;
+  background-color: #e0e0e0;
+  color: var(--input-color);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+.btn__submit {
+  color: white;
+  font-weight: 600;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  float: right;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  -webkit-appearance: none;
+}
+.btn__submit:hover {
+  background-color: tomato;
+}
+.btn__submit:disabled {
+  background-color: darkgray;
+  cursor: not-allowed;
+}
+
+.total {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 4rem;
+}
+
+.total p {
+  padding: 8px 0;
+}
+
+.total p:nth-child(n + 1) {
+  border-top: 1px solid#BDBDBD;
+}
+.total p:nth-child(even) {
+  text-align: right;
+}
+.total p:nth-child(odd) {
+  font-weight: 600;
+}
+.form-control {
+}
+.form-control small {
+  color: #e74c3c;
+  display: none;
+  font-size: 12px;
+}
+
+.form-control.error small {
+  display: initial;
+}
+.form-control.success input,
+#btn-group-selectCountry.success button {
+  border-color: #2ecc71;
+}
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 968px;
+    margin: 0 auto;
+    padding: 0 1.0875rem 1.45rem;
+  }
+  h1 {
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+  }
+  main {
+    margin-top: 4rem;
+  }
+  form {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .subtitle {
+    margin-top: 0;
+  }
+  label {
+    font-size: 12px;
+  }
+  .btn__submit {
+    margin: 0;
+  }
+  .car {
+    padding: 10px 22px;
+  }
+  .product img {
+    width: 170px;
+  }
+}
