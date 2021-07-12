@@ -33,7 +33,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="plugins/vanillaSelectBox.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"
+    />
+
     <link rel="stylesheet" href="assets/styles.css" />
 
     <title>Classic Cheesecake Recipe</title>
@@ -41,71 +51,77 @@
   <body>
     <main>
       <h1>Checkout</h1>
-      <form id="form-checkout">
+      <form id="form-checkout" class="needs-validation" novalidate>
         <section>
           <h2 class="subtitle">Contact Information</h2>
           <!-- Inputs -->
 
-          <div class="form-control">
-            <label for="email">E-mail</label>
+          <div class="form-control-custom">
+            <label for="email">First name</label>
             <div class="inputWithIcon">
               <input
-                class="input"
-                id="email"
                 type="email"
-                required
+                id="email"
+                class="form-control"
                 name="email"
-                placeholder="Enter your email..."
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                title="Your email address"
+                placeholder="Enter your email"
+                required
+                pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
               />
               <span class="material-icons" aria-hidden="true"> email </span>
+              <div class="invalid-feedback">Please Enter your email.</div>
             </div>
-            <small>Error message</small>
           </div>
-          <div class="form-control">
+
+          <div class="form-control-custom">
             <label for="phone">Phone</label>
             <div class="inputWithIcon">
               <input
                 id="phone"
-                class="input"
                 type="tel"
-                required
+                class="form-control"
                 name="phone"
-                maxlength="10"
                 placeholder="Enter your phone..."
+                pattern="^\d{3}\d{4}\d{3}$"
+                required
               />
               <span class="material-icons" aria-hidden="true"> phone </span>
+
+              <div class="invalid-feedback">
+                Please Enter your Phone Number, format: xxx-xxxx-xxx
+              </div>
             </div>
-            <small>Error message</small>
           </div>
+
           <h2>Shipping address</h2>
-          <div class="form-control">
+
+          <div class="form-control-custom">
             <label for="fullName">Full Name</label>
             <div class="inputWithIcon">
               <input
-                id="fullName"
-                class="input"
                 type="text"
+                id="fullName"
+                class="form-control"
                 name="fullName"
-                required
                 maxlength="40"
                 placeholder="Rodney Cotton"
                 title="Example: Rodney Cotton"
+                required
               />
               <span class="material-icons" aria-hidden="true">
                 account_circle
               </span>
+
+              <div class="invalid-feedback">Please Enter your Full Name</div>
             </div>
-            <small>Error message</small>
           </div>
 
-          <div class="form-control">
+          <div class="form-control-custom">
             <label for="address">Address</label>
             <div class="inputWithIcon">
               <input
                 id="address"
-                class="input"
+                class="form-control"
                 type="text"
                 required
                 maxlength="50"
@@ -113,41 +129,45 @@
                 placeholder="Your address..."
               />
               <span class="material-icons" aria-hidden="true"> home </span>
+
+              <div class="invalid-feedback">Please Enter your Address.</div>
             </div>
-            <small>Error message</small>
           </div>
 
-          <div class="form-control">
+          <div class="form-control-custom">
             <label for="city">City</label>
             <div class="inputWithIcon">
               <input
                 id="city"
-                class="input"
+                class="form-control"
                 type="text"
                 required
-                maxlength="20"
+                maxlength="25"
                 name="city"
                 placeholder="Your city"
-                pattern="[a-zA-Z'-'\s]*"
-                title="Example: Los Angeles"
               />
               <span class="material-icons" aria-hidden="true">
                 location_city
               </span>
+
+              <div class="invalid-feedback">Please Enter your City.</div>
             </div>
-            <small>Error message</small>
           </div>
 
           <div class="country">
             <div>
-              <div class="form-control">
+              <div class="form-control-custom">
                 <label for="country">Country</label>
                 <div class="inputWithIcon">
                   <select
                     id="selectCountry"
                     name="selectCountry"
+                    class="selectpicker"
                     multiple
-                    size="2"
+                    data-dropup-auto="false"
+                    data-none-selected-text="Your country..."
+                    data-max-options="3"
+                    required
                   >
                     <option value="United States">United States</option>
                     <option value="Mexico">Mexico</option>
@@ -156,33 +176,36 @@
                     <option value="Germany">Germany</option>
                     <option value="Switzerland">Switzerland</option>
                   </select>
-                  <span class="material-icons" aria-hidden="true">
+                  <span class="material-icons top7" aria-hidden="true">
                     public
                   </span>
+                  <div class="invalid-feedback">Please check.</div>
                 </div>
-                <small>Error message</small>
               </div>
             </div>
             <div>
-              <div class="form-control">
+              <div class="form-control-custom">
                 <label for="postalCode">Postal code</label>
                 <div class="inputWithIcon">
                   <input
                     id="postalCode"
-                    class="input"
-                    type="number"
-                    required
+                    class="form-control"
+                    type="text"
+                    minlength="5"
                     maxlength="5"
+                    required
                     name="postalCode"
                     placeholder="Your postal code..."
-                    title="5-digit number postal code"
-                    pattern="[0-9]{5}"
+                    pattern="[0-9]*"
                   />
                   <span class="material-icons" aria-hidden="true">
                     markunread_mailbox
                   </span>
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">
+                    Please Enter your Postal Code: 10001.
+                  </div>
                 </div>
-                <small>Error message</small>
               </div>
             </div>
           </div>
@@ -195,6 +218,7 @@
               required
             />
             Save this information for next time
+            <div class="invalid-feedback">Please check.</div>
           </label>
 
           <input
@@ -250,7 +274,21 @@
       >
       - devChallenges.io
     </footer>
-    <script src="plugins/vanillaSelectBox.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <script>
+      $("select").selectpicker("refresh");
+    </script>
     <script src="js/form.js"></script>
   </body>
 </html>
